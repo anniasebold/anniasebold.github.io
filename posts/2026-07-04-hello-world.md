@@ -1,4 +1,4 @@
-welcome to my personal's website! 🌸
+welcome to my personal website! 🌸
 
 i'm annia, and this is where i'll write about the things i work with:
 **AI agents**, **LLMs**, **n8n automations** and software engineering in general.
