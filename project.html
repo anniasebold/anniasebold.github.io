@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>annia sebold · projects</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=4">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="wordmark" href="index.html">annia<span class="tld">.dev</span></a>
+    <nav class="main" aria-label="main">
+      <a href="index.html">home</a>
+      <a href="resume.html">resume</a>
+      <a href="blog.html">blog</a>
+      <a href="projects.html" aria-current="page">projects</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <p><a class="back-link" href="projects.html">← all projects</a></p>
+    <article>
+      <header class="post-header">
+        <h1 id="article-title">loading…</h1>
+        <time id="article-date"></time>
+      </header>
+      <div class="post-body" id="article-body"></div>
+    </article>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© annia sebold</span>
+    <span>brazil</span>
+  </div>
+</footer>
+
+<script src="assets/site.js?v=4"></script>
+<script>renderArticle({ index: "projects/projects.json", dir: "projects", backHref: "projects.html" });</script>
+</body>
+</html>

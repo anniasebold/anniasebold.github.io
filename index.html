@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>annia sebold · home</title>
+<meta name="description" content="annia sebold — software engineer working with AI, LLM agents and n8n automations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=4">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="wordmark" href="index.html">annia<span class="tld">.dev</span></a>
+    <nav class="main" aria-label="main">
+      <a href="index.html" aria-current="page">home</a>
+      <a href="resume.html">resume</a>
+      <a href="blog.html">blog</a>
+      <a href="projects.html">projects</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="hero">
+      <h1>hi, i'm annia <span class="hand">👋</span></h1>
+      <p class="lead">
+        i'm a software engineer working with <strong>artificial intelligence</strong> —
+        currently building LLM-powered agents for large-scale customer service at
+        <a href="https://www.petlove.com.br" rel="noopener">petlove</a>.
+      </p>
+      <p>
+        i'm very into <strong>n8n automations</strong> and everything around AI agents:
+        my day-to-day goes from LangChain to LangGraph to Deep Agents, always measuring
+        what actually works in production. i just graduated in information systems at
+        UFMS, where my thesis was about building conversational assistants with LLMs and n8n.
+      </p>
+      <p>
+        before AI, i spent years as a fullstack developer (node.js, react, AWS) and as a
+        QA engineer automating tests — so i like my agents the same way i like my code:
+        observable, tested and shipped.
+      </p>
+
+      <ul class="links-inline">
+        <li><a href="https://github.com/anniasebold" rel="noopener">github</a></li>
+        <li><a href="https://www.linkedin.com/in/anniasebold" rel="noopener">linkedin</a></li>
+        <li><a href="mailto:anniasebold3.0@gmail.com">email</a></li>
+        <li><a href="resume.html">full resume →</a></li>
+      </ul>
+
+      <figure class="flow" aria-hidden="true">
+        <svg viewBox="0 0 560 96" xmlns="http://www.w3.org/2000/svg">
+          <path class="edge" d="M118 48 C 140 48, 148 48, 170 48" />
+          <path class="edge" d="M282 48 C 304 48, 312 48, 334 48" />
+          <path class="edge" d="M438 48 C 460 48, 468 48, 490 48" />
+          <rect class="node-box" x="18" y="28" width="100" height="40" rx="9"/>
+          <text class="node-label" x="68" y="52" text-anchor="middle">idea</text>
+          <rect class="node-box" x="170" y="28" width="112" height="40" rx="9"/>
+          <text class="node-label" x="226" y="52" text-anchor="middle">llm agent</text>
+          <rect class="node-box" x="334" y="28" width="104" height="40" rx="9"/>
+          <text class="node-label" x="386" y="52" text-anchor="middle">metrics</text>
+          <rect class="node-box accent" x="490" y="28" width="52" height="40" rx="9"/>
+          <text class="node-label" x="516" y="52" text-anchor="middle">prod</text>
+          <circle class="port" cx="118" cy="48" r="3"/>
+          <circle class="port" cx="282" cy="48" r="3"/>
+          <circle class="port" cx="438" cy="48" r="3"/>
+        </svg>
+        <figcaption class="flow-caption">// how i like to ship things</figcaption>
+      </figure>
+    </section>
+
+    <hr>
+
+    <section>
+      <h2>recent posts</h2>
+      <ul class="post-list" id="recent-posts"><li class="empty-note">loading…</li></ul>
+      <p style="margin-top:1rem"><a class="back-link" href="blog.html">all posts →</a></p>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© annia sebold</span>
+    <span>brazil</span>
+  </div>
+</footer>
+
+<script src="assets/site.js?v=4"></script>
+<script>renderList(document.getElementById("recent-posts"), { limit: 3 });</script>
+</body>
+</html>
