@@ -5,8 +5,8 @@ For this thesis I built the same LLM-powered assistant **three times** — on pu
 product, same features, three different architectures. This page is the blog-friendly version
 of what I learned.
 
-*(A heads-up: the diagrams and prints below come straight from the thesis and are still in
-Portuguese — I'll translate them for the English version.)*
+*(A heads-up: the Telegram prints below are real conversations with the bot, so they're in
+Portuguese — the diagrams are translated.)*
 
 ## Meet Finbot
 
@@ -37,7 +37,7 @@ one tiny job: classify the user's intent into a label like `save_expense` or
 `generate_report`. Everything else — extracting values and dates, normalizing card names,
 building queries, assembling responses, managing session state — was code.
 
-![V1 architecture: one single workflow, with the LLM acting only as an intent classifier](assets/img/finbot-v1-architecture.png)
+![V1 architecture: one single workflow, with the LLM acting only as an intent classifier](assets/img/finbot-v1-architecture.svg)
 
 It worked as a proof of viability, but:
 
@@ -54,7 +54,7 @@ sub-workflow was exposed to it as a tool, and the model decided which one to cal
 sub-workflow, the LLM extracted all the entities (value, date, category, card) in one shot,
 and conversational state moved from postgres tables to redis.
 
-![V2 architecture: an orchestrator agent routing to one sub-workflow per feature](assets/img/finbot-v2-architecture.png)
+![V2 architecture: an orchestrator agent routing to one sub-workflow per feature](assets/img/finbot-v2-architecture.svg)
 
 Better coupling, better maintainability — but a lot of logic was still duplicated across
 sub-workflows, and after the extraction step everything was hardcoded again. The LLM decided
@@ -67,7 +67,7 @@ tools like `list_cards`, `insert_expense`, `delete_expense`, `get_report_data`,
 `build_report`, `redis_set`, `redis_get`. On top of them, **five specialized agents**
 (expense, card, report, edit, delete) coordinated by an orchestrator agent.
 
-![V3 architecture: orchestrator, five specialized agents and a shared layer of atomic tools](assets/img/finbot-v3-architecture.png)
+![V3 architecture: orchestrator, five specialized agents and a shared layer of atomic tools](assets/img/finbot-v3-architecture.svg)
 
 The interesting part is that features became *compositions*: editing an expense is just
 "list, delete, insert again" reusing existing tools. Destructive operations got a two-step
@@ -82,7 +82,7 @@ evaluations** module: a set of test cases with expected states and responses, ju
 separate model (the agents ran on `gpt-4.1-mini`, the judge was `claude-3-5-haiku` — a
 different model family on purpose, to reduce self-preference bias).
 
-![LLM-as-judge evaluation flow: the agent's response is scored against the expected one by a judge model](assets/img/finbot-llm-as-judge.png)
+![LLM-as-judge evaluation flow: the agent's response is scored against the expected one by a judge model](assets/img/finbot-llm-as-judge.svg)
 
 The aggregated results per version:
 
@@ -90,7 +90,7 @@ The aggregated results per version:
 - **v2 (multi-workflow):** 42.85% accuracy · 10.04s · ~2,903 tokens
 - **v3 (multi-agent):** 75.51% accuracy · 7.27s · ~4,538 tokens
 
-![Accuracy per version: 9.52% on V1, 42.85% on V2, 75.51% on V3](assets/img/finbot-accuracy-by-version.png)
+![Accuracy per version: 9.52% on V1, 42.85% on V2, 75.51% on V3](assets/img/finbot-accuracy-by-version.svg)
 
 V3 gets it right **~8x more often than V1**, costing only about a second and a half more per
 interaction. And my favorite counterintuitive finding: V3 makes *several* LLM calls per
