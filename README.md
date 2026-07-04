@@ -1,7 +1,11 @@
 # annia sebold — personal site
 
-Minimalist static site: home, resume, blog and projects. No build step, no backend —
-plain HTML/CSS/JS, made for GitHub Pages.
+Minimalist static site: home, resume, blog and projects. Plain HTML/CSS/JS, made for
+GitHub Pages.
+
+Posts and projects get pretty URLs (`/blog/my-post/`, `/projects/my-project/`): on every
+push, a GitHub Action runs `scripts/build-pages.js`, which generates one folder per entry
+in `posts.json`/`projects.json`. The old `post.html?p=slug` URLs keep working.
 
 ## Preview locally
 
@@ -9,6 +13,7 @@ Browsers block `fetch()` on `file://`, so the blog/projects lists only load thro
 
 ```bash
 cd website
+node scripts/build-pages.js   # optional: generates the pretty URLs locally
 python3 -m http.server 8000
 # open http://localhost:8000
 ```
@@ -27,7 +32,8 @@ python3 -m http.server 8000
 }
 ```
 
-3. Commit and push — GitHub Pages redeploys automatically in about a minute.
+3. Commit and push — the deploy workflow rebuilds and publishes the site in about a minute,
+   and the post appears at `https://anniasebold.github.io/blog/2026-07-10-my-post-title/`.
 
 ## Publish a new project
 
@@ -54,7 +60,8 @@ git remote add origin git@github.com:anniasebold/anniasebold.github.io.git
 git push -u origin main
 ```
 
-3. The site goes live at `https://anniasebold.github.io` (Settings → Pages should
-   already show "Deploy from branch: main" by default).
+3. In the repository, go to Settings → Pages and set **Source: GitHub Actions**
+   (needed so the deploy workflow can publish the generated pretty URLs)
+4. The site goes live at `https://anniasebold.github.io`
 
 Only people with push access to the repo can publish anything.
