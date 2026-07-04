@@ -42,7 +42,7 @@ code blocks (```), bullet/numbered lists, quotes (`>`).
 
 ## Deploy to GitHub Pages (first time)
 
-1. Create a repository named `annia.github.io` on GitHub
+1. Create a repository named `anniasebold.github.io` on GitHub
 2. In this folder:
 
 ```bash
@@ -50,11 +50,11 @@ git init
 git add .
 git commit -m "first version of the site"
 git branch -M main
-git remote add origin git@github.com:annia/annia.github.io.git
+git remote add origin git@github.com:anniasebold/anniasebold.github.io.git
 git push -u origin main
 ```
 
-3. The site goes live at `https://annia.github.io` (Settings → Pages should
+3. The site goes live at `https://anniasebold.github.io` (Settings → Pages should
    already show "Deploy from branch: main" by default).
 
 Only people with push access to the repo can publish anything.
